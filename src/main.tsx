@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from '@homework-task/App';
+import { QueryClientProvider } from 'react-query';
+import { QueryClient } from 'react-query';
+
+const queryClient = new QueryClient();
 
 const rootElement = document.getElementById('root');
 
@@ -10,6 +14,8 @@ if (!rootElement) {
 
 ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
-        <App />
+        <QueryClientProvider client={queryClient}>
+            <App />
+        </QueryClientProvider>
     </React.StrictMode>
 );

@@ -1,3 +1,4 @@
+import axiosInstance from '@homework-task/api/axiosInstance';
 import { useQuery, UseQueryResult } from 'react-query';
 
 export interface User {
@@ -10,8 +11,8 @@ export interface User {
 
 const fetchUsers = async (): Promise<User[]> => {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    return response.json();
+    const response = await axiosInstance.get('/users');
+    return response.data;
   } catch (error) {
     throw new Error('Error fetching data');
   }

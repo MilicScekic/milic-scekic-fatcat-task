@@ -1,0 +1,18 @@
+[
+  {
+      "title": "Transfer the project to TypeScript",
+      "description": "Your first task involves transitioning this project from JavaScript to TypeScript."
+  },
+  {
+      "title": "Create a scalable List Component",
+      "description": "Build a scalable React component to fetch and display key information (id, name, username, email, and phone) from an API in a list format."
+  },
+  {
+      "title": "Create a Form Generator Component",
+      "description": "Build a versatile React component with validation, API hook, and form rendering capabilities."
+  },
+  {
+      "title": "Create a Page Generator Component",
+      "description": "Create a versatile React component for dynamic webpage construction, adapting to various layouts and components through received props."
+  }
+]

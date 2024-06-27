@@ -1,10 +1,5 @@
+import { ButtonProps } from '@homework-task/typescript/interfaces';
 import clsx from 'clsx';
-
-interface ButtonProps {
-    children: React.ReactNode;
-    onClick: () => void;
-    className?: string;
-}
 
 export const Button: React.FC<ButtonProps> = ({
     children,

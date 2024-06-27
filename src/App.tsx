@@ -1,14 +1,20 @@
 import { List } from '@homework-task/components/List';
-import useUsers, { User } from '@homework-task/hooks/useUsers';
+import useUsers from '@homework-task/hooks/useUsers';
 import { ListItem } from '@homework-task/components/ListItem';
 
-import './styles.css';
-import Form from './components/Form';
+import '@homework-task/styles.css';
+import Form from '@homework-task/components/Form';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { z } from 'zod';
-import usePost from './hooks/usePost';
+import usePost from '@homework-task/hooks/usePost';
+import items from '@homework-task/mock-data/items.json';
+import LayoutSection from '@homework-task/components/LayoutSection';
+import { LayoutSectionData, PageData } from '@homework-task/typescript/types';
+import { Hero } from '@homework-task/components/Hero';
+import { ItemsShowcase } from '@homework-task/components/ItemsShowcase';
+import { User } from '@homework-task/typescript/interfaces';
 
-function App(): JSX.Element {
+function App() {
     const validationSchema = z.object({
         title: z
             .string()
@@ -61,19 +67,77 @@ function App(): JSX.Element {
         );
     };
 
+    const data: PageData = [
+        {
+            key: 1,
+            type: 'flexLayout',
+            props: { title: 'Flex layout' },
+            components: [
+                {
+                    type: 'componentHero',
+                    props: {
+                        children: (
+                            <Hero
+                                title=" Welcome to Fat Cat&#39;s"
+                                image="/media/landing/hero.svg"
+                            />
+                        ),
+                    },
+                },
+                {
+                    type: 'componentItemsShowcase',
+                    props: {
+                        children: <ItemsShowcase items={items} />,
+                    },
+                },
+            ],
+        },
+        {
+            key: 2,
+            type: 'gridLayout',
+            props: { title: 'Grid layout' },
+            components: [
+                {
+                    type: 'componentList',
+                    props: {
+                        children: (
+                            <List
+                                useData={useUsers}
+                                renderItem={(user: User) => (
+                                    <ListItem user={user} />
+                                )}
+                                heading="Users List"
+                            />
+                        ),
+                    },
+                },
+                {
+                    type: 'componentForm',
+                    props: {
+                        children: (
+                            <Form
+                                useMutation={usePost}
+                                validationSchema={validationSchema}
+                                renderForm={renderForm}
+                                heading="Posts Form"
+                            />
+                        ),
+                    },
+                },
+            ],
+        },
+    ];
+
     return (
         <main className="m-2">
-            <List
-                useData={useUsers}
-                renderItem={(user: User) => <ListItem user={user} />}
-                heading="Users List"
-            />
-            <Form
-                useMutation={usePost}
-                validationSchema={validationSchema}
-                renderForm={renderForm}
-                heading="Posts Form"
-            />
+            {data.map((page: LayoutSectionData) => (
+                <LayoutSection
+                    key={page.key}
+                    type={page.type}
+                    props={page.props}
+                    components={page.components}
+                />
+            ))}
         </main>
     );
 }

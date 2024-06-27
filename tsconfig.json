@@ -17,6 +17,7 @@
       "forceConsistentCasingInFileNames": true,
       "moduleResolution": "node",
       "skipLibCheck": true,
+      "resolveJsonModule": true,
     },
     "include": ["src/**/*", "globals.d.ts"],
     "exclude": ["node_modules", "**/*.spec.ts"]

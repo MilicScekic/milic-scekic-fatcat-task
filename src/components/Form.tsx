@@ -1,23 +1,6 @@
-import {
-    FieldErrors,
-    FieldValues,
-    SubmitHandler,
-    UseFormRegister,
-    useForm,
-} from 'react-hook-form';
-import { UseMutationResult } from 'react-query';
-import { ZodType } from 'zod';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-interface FormProps<T extends FieldValues> {
-    useMutation: () => UseMutationResult<any, unknown, T, unknown>;
-    validationSchema: ZodType<T>;
-    renderForm: (props: {
-        register: UseFormRegister<T>;
-        errors: FieldErrors<T>;
-    }) => React.ReactNode;
-    heading: string;
-}
+import { FormProps } from '@homework-task/typescript/interfaces';
 
 const Form = <T extends Record<string, any>>({
     useMutation,
@@ -39,8 +22,8 @@ const Form = <T extends Record<string, any>>({
         await mutation.mutateAsync(data);
     };
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="w-1/4">
-            <h2 className="text-2xl font-semibold my-4">{heading}</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full md:w-1/2">
+            <h2 className="text-lg font-semibold my-4">{heading}</h2>
             {renderForm({ register, errors })}
             <button
                 className="bg-primary px-6 py-2 rounded-lg text-white mb-2"

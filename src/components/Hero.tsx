@@ -1,7 +1,4 @@
-interface HeroProps {
-    title: string;
-    image: string;
-}
+import { HeroProps } from '@homework-task/typescript/interfaces';
 
 export const Hero: React.FC<HeroProps> = ({ title, image }) => {
     return (

@@ -1,11 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-
-interface CardProps {
-    title: string;
-    text: string;
-    link: string;
-}
+import { CardProps } from '@homework-task/typescript/interfaces';
 
 export const Card: React.FC<CardProps> = ({ title, text, link }) => (
     <div

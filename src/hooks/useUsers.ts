@@ -1,13 +1,7 @@
 import axiosInstance from '@homework-task/api/axiosInstance';
+import { User } from '@homework-task/typescript/interfaces';
 import { useQuery, UseQueryResult } from 'react-query';
 
-export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  phone: string;
-}
 
 const fetchUsers = async (): Promise<User[]> => {
   try {

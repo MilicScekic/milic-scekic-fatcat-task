@@ -1,8 +1,5 @@
+import { ItemsShowcaseProps } from '@homework-task/typescript/interfaces';
 import clsx from 'clsx';
-
-interface ItemsShowcaseProps {
-    items: { title: string; description: string; image: string }[];
-}
 
 export const PanelShowcase: React.FC<ItemsShowcaseProps> = ({ items }) => {
     return (

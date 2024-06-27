@@ -1,17 +1,7 @@
 import clsx from 'clsx';
 
-import { Button } from './Button.js';
-
-interface CardsProps {
-    cards: {
-        title: string;
-        image: string;
-        description: string;
-        background: string;
-        onClick: () => void;
-        buttonText: string;
-    }[];
-}
+import { Button } from '@homework-task/components/Button';
+import { CardsProps } from '@homework-task/typescript/interfaces';
 
 export const Cards: React.FC<CardsProps> = ({ cards }) => {
     return (

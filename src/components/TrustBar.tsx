@@ -1,9 +1,6 @@
+import { TrustBarProps } from '@homework-task/typescript/interfaces';
 import React from 'react';
 import Marquee from 'react-fast-marquee';
-
-interface TrustBarProps {
-    images: string[];
-}
 
 export const TrustBar: React.FC<TrustBarProps> = ({ images }) => {
     return (

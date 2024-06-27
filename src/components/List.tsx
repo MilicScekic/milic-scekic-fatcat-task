@@ -1,11 +1,5 @@
+import { ListProps } from '@homework-task/typescript/interfaces';
 import React from 'react';
-import { UseQueryResult } from 'react-query';
-
-interface ListProps<T> {
-    useData: () => UseQueryResult<T[], Error>;
-    renderItem: (item: T) => React.ReactNode;
-    heading: string;
-}
 
 export const List = <T,>({ useData, renderItem, heading }: ListProps<T>) => {
     const { data, isLoading, isError, error } = useData();
@@ -18,7 +12,7 @@ export const List = <T,>({ useData, renderItem, heading }: ListProps<T>) => {
 
     return (
         <>
-            <h2 className="text-2xl font-semibold my-4">{heading}</h2>
+            <h2 className="text-lg font-semibold my-4">{heading}</h2>
             <ul>
                 {data.map((item: any) => (
                     <React.Fragment key={item.id}>

@@ -1,6 +1,4 @@
-interface ItemsShowcaseProps {
-    items: { title: string; description: string }[];
-}
+import { ItemsShowcaseProps } from '@homework-task/typescript/interfaces';
 
 export const ItemsShowcase: React.FC<ItemsShowcaseProps> = ({ items }) => {
     return (

@@ -1,8 +1,5 @@
-import { User } from '@homework-task/hooks/useUsers';
+import { ListItemProps } from '@homework-task/typescript/interfaces';
 
-interface ListItemProps {
-    user: User;
-}
 export const ListItem: React.FC<ListItemProps> = ({ user }) => {
     return (
         <li className="bg-gray5 mb-3 px-4 py-1 w-fit">

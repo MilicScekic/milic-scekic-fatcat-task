@@ -5,7 +5,7 @@
           "@homework-task/*": ["src/*"]
         },
       "target": "es6",
-      "module": "esnext",
+      "module": "commonjs",
       "noImplicitAny": true,
       "strict": true,
       "strictNullChecks": true,

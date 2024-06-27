@@ -7,6 +7,10 @@ git clone git@github.com:MilicScekic/milic-scekic-fatcat-task.git
 ```
 
 ```bash
+cd milic-scekic-fatcat-task
+```
+
+```bash
 yarn install
 ```
 
